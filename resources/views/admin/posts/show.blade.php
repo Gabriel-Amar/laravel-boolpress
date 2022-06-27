@@ -8,7 +8,7 @@
         {{$post->title}}
     </h1>
     <p>
-        {{$post->content}}
+        {!! $post->content !!}
     </p>
     <small>{{$post->created_at}}</small>
     <h5>
@@ -22,5 +22,6 @@
             <li>{{$item->name}}</li>
         @endforeach
     </ul>
+    <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" width="100" alt="">
 </div>
 @endsection

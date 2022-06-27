@@ -8,7 +8,9 @@ use Illuminate\Support\Str;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Illuminate\Contracts\Cache\Store;
 use Prophecy\Call\Call;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -60,6 +62,11 @@ class PostController extends Controller
             $count++;
         }
         $newPost->slug = $slug;
+
+        if(isset($data['tags'])){
+            $path_image = Storage::put("uploads", $data['image']);
+            $newPost->image = $path_image;
+        }
         $newPost->save();
 
         if(isset($data['tags'])){

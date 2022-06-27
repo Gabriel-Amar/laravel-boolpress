@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <form action="{{route('admin.posts.store')}}" method="post">
+  <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -16,6 +16,15 @@
         <input type="checkbox" class="form-check-input" {{old('published') ? 'checked' : ''}} id="published" name="published">
         <label class="form-check-label" for="published" >Pubblicato</label>
       </div>
+      <div class="form-group">
+        <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200">
+        <label for="image">Aggiungi immagine</label>
+        <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
+        @error('image')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+  </div>
       <div class="mb-3">
         <label for="category" class="form-label">category</label>
         <select name="category_id" id="category" class="form-control">
@@ -39,5 +48,11 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
+    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      bkLib.onDomLoaded(nicEditors.allTextAreas);
+    </script>
+  
 </div>
 @endsection

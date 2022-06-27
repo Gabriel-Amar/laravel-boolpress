@@ -1,7 +1,6 @@
 <template>
     <div class="text-center">
-        <h1>BOOLPRESS</h1>
-        <a href="admin/posts">Vai ai post</a>
+        
     </div>
 </template>
 
