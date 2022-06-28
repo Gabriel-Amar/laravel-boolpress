@@ -63,7 +63,7 @@ class PostController extends Controller
         }
         $newPost->slug = $slug;
 
-        if(isset($data['tags'])){
+        if(isset($data['image'])){
             $path_image = Storage::put("uploads", $data['image']);
             $newPost->image = $path_image;
         }

@@ -4,7 +4,12 @@
 @section('content')
 <div class="container">
 
-    <h1>
+    <div class="card m-auto" style="width: 18rem;">
+        @if ($post->image)
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid card-img-top" alt="">
+        @endif
+        <div class="card-body">
+         <h1>
         {{$post->title}}
     </h1>
     <p>
@@ -22,6 +27,10 @@
             <li>{{$item->name}}</li>
         @endforeach
     </ul>
-    <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" width="100" alt="">
+        </div>
+      </div>
+
+    
+    
 </div>
 @endsection
