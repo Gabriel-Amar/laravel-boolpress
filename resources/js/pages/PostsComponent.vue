@@ -5,7 +5,7 @@
                 <div v-for="post in posts" :key='post.id' class="card col-4" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
-                        <p class="card-text">{{post.content}}</p>
+                        <p class="card-text " v-html="post.content"></p>
                         <router-link :to="{ name: 'single-post', params: {slug: post.slug} }" class="nav-link">Visualizza il post</router-link>
                     </div>
                 </div>

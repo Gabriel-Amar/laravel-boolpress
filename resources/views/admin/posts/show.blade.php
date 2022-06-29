@@ -17,7 +17,7 @@
     </p>
     <small>{{$post->created_at}}</small>
     <h5>
-        Pubblicato: {{$post->published ? 'Published' : 'Unpublished'}}
+        Pubblicato: {{$post->published ? 'Sì' : 'No'}}
     </h5>
     <p>
         <h2>{{$post->category ? $post->category->name : ''}}</h2>

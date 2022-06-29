@@ -82,7 +82,7 @@ a{
     width: 100%;
   }
 }
-.router-link-active{
+.router-link-exact-active{
     color: rgb(255, 255, 255) !important;
 }
 
