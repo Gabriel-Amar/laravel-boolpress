@@ -51,6 +51,12 @@ a{
     width: 100%;
   }
 }
+/* .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: rgb(52, 51, 51);
+}
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+   background-color: rgb(156, 153, 153);
+} */
 </style>
 <body>
     <div id="app">

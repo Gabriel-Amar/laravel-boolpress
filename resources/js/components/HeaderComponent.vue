@@ -83,7 +83,7 @@ a{
   }
 }
 .router-link-exact-active{
-    color: rgb(255, 255, 255) !important;
+    color: rgb(219, 106, 0) !important;
 }
 
 </style>

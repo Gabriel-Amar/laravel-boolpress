@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        $categories = Category::all();
+        return response()->json($categories);
     }
 
     /**
@@ -45,9 +46,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $category = Category::where('slug', $slug)->with(['posts'])->first();
+        return response()->json($category);
     }
 
     /**

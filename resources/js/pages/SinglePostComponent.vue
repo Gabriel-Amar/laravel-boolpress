@@ -28,7 +28,8 @@
                 <div v-if="post.comments.length > 0">
                     <h4>Commenti</h4>
                     <div v-for="comment in post.comments" :key="comment.id">
-                        {{ comment.content }}
+                        <p>{{comment.username}}: <br>{{ comment.content }}</p>
+                        
                     </div>
                 </div>
                 </div>
@@ -56,6 +57,8 @@ export default {
                 .post("/api/comments", this.formData)
                 .then((response) => {
                     this.post.comments.push(response.data);
+                    this.formData.username = "";
+                    this.formData.content = "";
                 })
                 .catch((error) => {
                     console.log(error);
