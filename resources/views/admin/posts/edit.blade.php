@@ -4,7 +4,7 @@
 <div class="container">
 
 
-    <form action="{{route('admin.posts.update', $post->id)}}" method="post">
+    <form action="{{route('admin.posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -35,9 +35,7 @@
           <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200">
           <label for="image">Aggiungi immagine</label>
           <input type="file" id="image" name="image" onchange="boolpress.previewImage();">
-          @error('image')
-              <div class="alert alert-danger">{{ $message }}</div>
-          @enderror
+          
     </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

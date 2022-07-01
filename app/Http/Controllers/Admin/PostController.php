@@ -118,9 +118,15 @@ class PostController extends Controller
                 $post->slug = $this->getSlug($post->title);
         }
     }
-        $post->category_id = $data['category_id'];
-        $post->content = $data['content'];
-        $post->published = isset($data['published']);
+    $post->category_id = $data['category_id'];
+    $post->content = $data['content'];
+    $post->published = isset($data['published']);
+
+    if(isset($data['image'])){
+        $path_image = Storage::put("uploads", $data['image']);
+        $post->image = $path_image;
+    }
+    
         $post->update();
         return redirect()->route('admin.posts.show', $post->id);
     }
